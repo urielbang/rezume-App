@@ -3,8 +3,14 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import img from "../assets/reshot-icon-resume-XTALQHGEVC.svg";
 import { Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
-export default function NavBar() {
+export default function NavBar({ isLoged }) {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  const handleClickLoged = () => {};
+
   return (
     <Navbar className="navBar">
       <Container>
@@ -31,7 +37,11 @@ export default function NavBar() {
         </ul>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            loged in as:{" "}
+            <a onClick={handleClickLoged} className="logInMail">
+              {isLoged ? user.email : "not logged"}
+              <p>log out</p>
+            </a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
