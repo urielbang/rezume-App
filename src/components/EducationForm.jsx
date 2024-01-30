@@ -4,17 +4,18 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 export default function EducationForm({ setEducation }) {
   const [education, setNewEducation] = useState({});
-  const [arrEducation, setArrEducataion] = useState({});
+  // const [arrEducation, setArrEducataion] = useState({});
   const handleClick = (e) => {
     e.preventDefault();
-    setArrEducataion({ ...arrEducation, ...education });
+    // setArrEducataion({ ...arrEducation, ...education });
+    setEducation(education);
   };
   const handleChange = (e) => {
     setNewEducation({ ...education, [e.target.name]: e.target.value });
   };
-  useEffect(() => {
-    setEducation(arrEducation);
-  }, [arrEducation]);
+  // useEffect(() => {
+  //   setEducation(arrEducation);
+  // }, [arrEducation]);
   return (
     <>
       <Form.Label>Education</Form.Label>

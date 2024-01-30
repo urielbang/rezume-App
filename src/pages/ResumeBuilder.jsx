@@ -11,7 +11,6 @@ export default function ResumeBuilder() {
   const [resumeFromUsr, setResumeFromUsr] = useState({});
   const [allDataResume, setAllDataResume] = useState({});
 
-  //? arr of educatin data
   const [education, setEducation] = useState({});
   const [arrDataEducation, setArrDataEducation] = useState([]);
 
@@ -22,6 +21,7 @@ export default function ResumeBuilder() {
 
   const [educationElements, setEducationElements] = useState([]);
 
+  const [togglePost, setTogglePost] = useState(false);
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -44,13 +44,20 @@ export default function ResumeBuilder() {
 
   //! submit
   const handleSubmit = (e) => {
+    //! set the object of the resume
     e.preventDefault();
 
-    //! set the object of the resume
+    setarrDataWorkExperience([...arrDataWorkExperience, { ...workExperience }]);
+
+    setArrDataEducation([...arrDataEducation, { ...education }]);
+
     setAllDataResume({
       ...allDataResume,
       ...resumeFromUsr,
+      workExperience: arrDataWorkExperience,
+      education: arrDataEducation,
     });
+    setTogglePost(!togglePost);
 
     // //! delete All inputs
     // const inputs = Object.values(e.target);
@@ -61,7 +68,12 @@ export default function ResumeBuilder() {
   const posDataFirebase = async () => {
     if (user) {
       const collectionRef = collection(db, "ResumeData");
-      const payload = allDataResume;
+      const payload = {
+        ...allDataResume,
+        ...resumeFromUsr,
+        workExperience: arrDataWorkExperience,
+        education: arrDataEducation,
+      };
       await addDoc(collectionRef, { payload, urerId: user.uid });
     }
   };
@@ -70,7 +82,7 @@ export default function ResumeBuilder() {
     e.preventDefault();
     setarrDataWorkExperience([...arrDataWorkExperience, { ...workExperience }]);
 
-    setEducationElements([
+    setworkExperienceElements([
       ...workExperienceElements,
       <WorkExperienceForm setWorkExperience={setWorkExperience} />,
     ]);
@@ -87,10 +99,8 @@ export default function ResumeBuilder() {
   };
 
   useEffect(() => {
-    // posDataFirebase();
-
-    console.log(arrDataEducation);
-  }, [arrDataEducation]);
+    posDataFirebase();
+  }, [togglePost]);
 
   return (
     <>
@@ -167,6 +177,7 @@ export default function ResumeBuilder() {
             />
           </InputGroup>
           {workExperienceElements}
+
           <button onClick={handleAddExperience} className="button-9">
             add Workexperience
           </button>
