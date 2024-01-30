@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import db from "../config";
-
+import EducationForm from "../components/EducationForm";
+import WorkExperienceForm from "../components/WorkExperienceForm";
 import { getAuth } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -10,6 +11,7 @@ export default function ResumeBuilder() {
   const [resumeFromUsr, setResumeFromUsr] = useState({});
   const [allDataResume, setAllDataResume] = useState({});
 
+  //? arr of educatin data
   const [education, setEducation] = useState({});
   const [arrDataEducation, setArrDataEducation] = useState([]);
 
@@ -17,14 +19,17 @@ export default function ResumeBuilder() {
   const [arrDataWorkExperience, setarrDataWorkExperience] = useState([]);
 
   const [workExperienceElements, setworkExperienceElements] = useState([]);
+
+  const [educationElements, setEducationElements] = useState([]);
+
   const auth = getAuth();
   const user = auth.currentUser;
 
-  const handleChangeworkExperience = (e) => {
-    setWorkExperience({ ...workExperience, [e.target.name]: e.target.value });
-  };
   const handleChangeEducation = (e) => {
     setEducation({ ...education, [e.target.name]: e.target.value });
+  };
+  const handleChangeworkExperience = (e) => {
+    setWorkExperience({ ...workExperience, [e.target.name]: e.target.value });
   };
   const handlChange = (e) => {
     if (
@@ -37,14 +42,9 @@ export default function ResumeBuilder() {
     }
   };
 
+  //! submit
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //! set the education arr
-    setArrDataEducation([...arrDataEducation, { ...education }]);
-
-    //! set the workExpriens arr
-    setarrDataWorkExperience([...arrDataWorkExperience, { ...workExperience }]);
 
     //! set the object of the resume
     setAllDataResume({
@@ -65,53 +65,32 @@ export default function ResumeBuilder() {
       await addDoc(collectionRef, { payload, urerId: user.uid });
     }
   };
-  const handleClickAddExperience = (e) => {
+
+  const handleAddExperience = (e) => {
     e.preventDefault();
-    // //! set the workExpriens arr
-    // setarrDataWorkExperience([...arrDataWorkExperience, { ...workExperience }]);
+    setarrDataWorkExperience([...arrDataWorkExperience, { ...workExperience }]);
 
-    setworkExperienceElements([
+    setEducationElements([
       ...workExperienceElements,
-      <>
-        <Form.Label>Work Experience</Form.Label>
-        <InputGroup onChange={handleChangeworkExperience} className="mb-3">
-          <InputGroup.Text id="basic-addon1">Company name</InputGroup.Text>
-          <Form.Control
-            placeholder="Company"
-            aria-label="Username"
-            name="workExperienceComanyName"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
+      <WorkExperienceForm setWorkExperience={setWorkExperience} />,
+    ]);
+  };
 
-        <InputGroup onChange={handleChangeworkExperience} className="mb-3">
-          <InputGroup.Text id="basic-addon1">Role</InputGroup.Text>
-          <Form.Control
-            placeholder="Role"
-            aria-label="Username"
-            name="workExperienceRole"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
+  const handleAddEducation = (e) => {
+    e.preventDefault();
+    setArrDataEducation([...arrDataEducation, { ...education }]);
 
-        <InputGroup onChange={handleChangeworkExperience} className="mb-3">
-          <InputGroup.Text id="basic-addon1">Time frame</InputGroup.Text>
-          <Form.Control
-            placeholder="Time frame"
-            aria-label="Username"
-            name="workExperienceTime"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
-      </>,
+    setEducationElements([
+      ...educationElements,
+      <EducationForm setEducation={setEducation} />,
     ]);
   };
 
   useEffect(() => {
     // posDataFirebase();
 
-    console.log(arrDataWorkExperience);
-  }, [allDataResume]);
+    console.log(arrDataEducation);
+  }, [arrDataEducation]);
 
   return (
     <>
@@ -188,7 +167,7 @@ export default function ResumeBuilder() {
             />
           </InputGroup>
           {workExperienceElements}
-          <button onClick={handleClickAddExperience} className="button-9">
+          <button onClick={handleAddExperience} className="button-9">
             add Workexperience
           </button>
 
@@ -223,7 +202,11 @@ export default function ResumeBuilder() {
               aria-describedby="basic-addon1"
             />
           </InputGroup>
-          <button className="button-9">add Education</button>
+          {educationElements}
+
+          <button onClick={handleAddEducation} className="button-9">
+            add Education
+          </button>
 
           <div className="buttonContainer">
             <button className="button-19" type="submit">
