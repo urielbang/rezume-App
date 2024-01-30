@@ -58,6 +58,10 @@ export default function ResumeBuilder() {
       education: arrDataEducation,
     });
     setTogglePost(!togglePost);
+    //!clear inputs
+    Object.values(e.target).forEach((input) => {
+      input.value = "";
+    });
 
     // //! delete All inputs
     // const inputs = Object.values(e.target);
