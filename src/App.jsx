@@ -21,15 +21,21 @@ function App() {
   // }, []);
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/resumes" element={<ListResumes />} />
-        <Route path="/resumeapp" element={<ResumeBuilder />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      {user ? (
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/resumes" element={<ListResumes />} />
+            <Route path="/resumeapp" element={<ResumeBuilder />} />
+          </Routes>{" "}
+        </BrowserRouter>
+      ) : (
+        <Auth />
+      )}
+    </>
   );
 }
 
