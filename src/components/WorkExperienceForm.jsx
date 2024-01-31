@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 export default function WorkExperienceForm({ setWorkExperience }) {
   const [newWorkExperience, setNewWorkExperience] = useState({});
-  const [arrWorkExperience, setArrWorkExperience] = useState({});
 
   const handleClick = (e) => {
     e.preventDefault();
-    // setArrWorkExperience({ ...arrWorkExperience, ...newWorkExperience });
+
     setWorkExperience(newWorkExperience);
   };
   const handleChange = (e) => {
@@ -16,10 +15,6 @@ export default function WorkExperienceForm({ setWorkExperience }) {
       [e.target.name]: e.target.value,
     });
   };
-
-  // useEffect(() => {
-  //   setWorkExperience(arrWorkExperience);
-  // }, [arrWorkExperience]);
 
   return (
     <>
@@ -53,7 +48,9 @@ export default function WorkExperienceForm({ setWorkExperience }) {
           aria-describedby="basic-addon1"
         />
       </InputGroup>
-      <button onClick={handleClick}>save Workexperience</button>
+      <button className="button-86" onClick={handleClick}>
+        save Workexperience
+      </button>
     </>
   );
 }

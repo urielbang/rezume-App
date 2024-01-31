@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 
 import img from "../assets/join-us.png";
-import imgBackground from "../assets/pattern.svg";
-import Spline from "@splinetool/react-spline";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";

@@ -6,6 +6,8 @@ import WorkExperienceForm from "../components/WorkExperienceForm";
 import { getAuth } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import AOS from "aos";
+import "aos/dist/aos.css";
+import img from "../assets/reshot-icon-resume-XTALQHGEVC.svg";
 
 import "aos/dist/aos.css";
 
@@ -107,6 +109,9 @@ export default function ResumeBuilder() {
       <EducationForm setEducation={setEducation} />,
     ]);
   };
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   useEffect(() => {
     if (togglePost) {
@@ -116,7 +121,7 @@ export default function ResumeBuilder() {
 
   return (
     <div className="container-resume-builder">
-      <div className="containeResume">
+      <div data-aos="fade-right" className="containeResume">
         <h1 className="headingResume">Resume Form!</h1>
         <form onSubmit={handleSubmit} className="formContainer">
           <InputGroup onChange={handlChange} className="mb-3">
@@ -188,10 +193,11 @@ export default function ResumeBuilder() {
             />
           </InputGroup>
           {workExperienceElements}
-
-          <button onClick={handleAddExperience} className="button-9">
-            add Workexperience
-          </button>
+          <div className="buttonContainer">
+            <a onClick={handleAddExperience} className="button" id="button">
+              add Education
+            </a>
+          </div>
 
           <Form.Label>Education</Form.Label>
           <InputGroup onChange={handleChangeEducation} className="mb-3">
@@ -226,16 +232,21 @@ export default function ResumeBuilder() {
           </InputGroup>
           {educationElements}
 
-          <button onClick={handleAddEducation} className="button-9">
-            add Education
-          </button>
+          <div className="buttonContainer">
+            <a onClick={handleAddEducation} className="button" id="button">
+              add Education
+            </a>
+          </div>
 
           <div className="buttonContainer">
-            <button className="button-19" type="submit">
+            <button className="button-5" type="submit">
               Send CV
             </button>
           </div>
         </form>
+      </div>
+      <div data-aos="fade-left" className="picResumeBuilder">
+        <img src={img} alt="" />
       </div>
     </div>
   );

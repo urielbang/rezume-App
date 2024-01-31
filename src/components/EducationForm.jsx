@@ -1,21 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 export default function EducationForm({ setEducation }) {
   const [education, setNewEducation] = useState({});
-  // const [arrEducation, setArrEducataion] = useState({});
+
   const handleClick = (e) => {
     e.preventDefault();
-    // setArrEducataion({ ...arrEducation, ...education });
+
     setEducation(education);
   };
   const handleChange = (e) => {
     setNewEducation({ ...education, [e.target.name]: e.target.value });
   };
-  // useEffect(() => {
-  //   setEducation(arrEducation);
-  // }, [arrEducation]);
+
   return (
     <>
       <Form.Label>Education</Form.Label>
@@ -49,7 +47,9 @@ export default function EducationForm({ setEducation }) {
           aria-describedby="basic-addon1"
         />
       </InputGroup>
-      <button onClick={handleClick}>save education</button>
+      <button className="button-86" onClick={handleClick}>
+        save education
+      </button>
     </>
   );
 }
