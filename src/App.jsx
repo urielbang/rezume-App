@@ -9,20 +9,20 @@ import ResumeBuilder from "./pages/ResumeBuilder";
 import { UserContext } from "./context/User";
 
 function App() {
-  const [isLoged, setIsLoged] = useState(false);
+  // const [isLoged, setIsLoged] = useState(false);
   const { user } = useContext(UserContext);
 
-  useEffect(() => {
-    if (user) {
-      setIsLoged(true);
-    } else {
-      setIsLoged(false);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (user) {
+  //     setIsLoged(true);
+  //   } else {
+  //     setIsLoged(false);
+  //   }
+  // }, []);
 
   return (
     <BrowserRouter>
-      <NavBar isLoged={isLoged} />
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<Auth />} />
