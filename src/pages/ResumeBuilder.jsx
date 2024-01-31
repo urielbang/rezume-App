@@ -5,6 +5,9 @@ import EducationForm from "../components/EducationForm";
 import WorkExperienceForm from "../components/WorkExperienceForm";
 import { getAuth } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
+import AOS from "aos";
+
+import "aos/dist/aos.css";
 
 import InputGroup from "react-bootstrap/InputGroup";
 export default function ResumeBuilder() {
@@ -112,8 +115,7 @@ export default function ResumeBuilder() {
   }, [togglePost]);
 
   return (
-    <>
-      <div className="ContainerBackgroundResume"> </div>
+    <div className="container-resume-builder">
       <div className="containeResume">
         <h1 className="headingResume">Resume Form!</h1>
         <form onSubmit={handleSubmit} className="formContainer">
@@ -235,6 +237,6 @@ export default function ResumeBuilder() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

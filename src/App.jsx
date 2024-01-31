@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import HomePage from "./pages/HomePage";
@@ -9,16 +9,7 @@ import ResumeBuilder from "./pages/ResumeBuilder";
 import { UserContext } from "./context/User";
 
 function App() {
-  // const [isLoged, setIsLoged] = useState(false);
   const { user } = useContext(UserContext);
-
-  // useEffect(() => {
-  //   if (user) {
-  //     setIsLoged(true);
-  //   } else {
-  //     setIsLoged(false);
-  //   }
-  // }, []);
 
   return (
     <>

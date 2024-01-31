@@ -11,7 +11,27 @@
 }
 .menu a {
   text-decoration: none;
+  color: aliceblue;
+}
+.menu a:hover {
   color: black;
+  text-decoration: underline;
+}
+#logInMail {
+  color: black;
+}
+.mailLoged {
+  color: black;
+  display: flex;
+  gap: 0.5rem;
+}
+.conectedIcon {
+  font-size: 1.5rem;
+}
+.logOutButton {
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
 }
 .containerForm {
   display: flex;
@@ -34,9 +54,13 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-left: 2rem;
+}
+.cardHomeRight {
+  margin-right: 2rem;
 }
 .homePageLink {
-  background-color: #1e90ff;
+  background-color: #365486;
   width: 15vw;
   display: flex;
   padding: 0.5rem;
@@ -45,13 +69,32 @@
   justify-content: center;
 }
 .homePageLink:hover {
-  background-color: #1e8fff97;
+  background-color: #36538695;
+}
+.containerHomePage {
+  background-image: url("./assets/bacjground2.jpg");
+
+  background-size: contain;
 }
 .homePageLink a {
   text-decoration: none;
   color: aliceblue;
 
   font-weight: bold;
+}
+.cardHomeLeft p {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  font-family: "Ubuntu", sans-serif;
+}
+.cardHomeLeft span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  font-family: "Ubuntu", sans-serif;
 }
 .containeResume {
   display: flex;
@@ -61,27 +104,30 @@
   margin: 9rem;
 }
 .navBar {
-  background-color: #1e8fffc4;
+  background-color: #365486;
+
+  height: 6.5vw;
+
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
 }
 .headingResume {
   text-align: center;
 }
-.ContainerBackgroundResume {
-  background-image: url("./assets/background3.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  right: 0rem;
-  bottom: 0;
-  height: 80vh;
-  z-index: -500;
-  min-width: 45vw;
-}
 .formContainer {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+.container-resume-builder {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background-image: url("./assets/background.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
 }
 
 .button-19 {
