@@ -58,7 +58,10 @@ export default function ResumeBuilder() {
       education: arrDataEducation,
     });
     setTogglePost(!togglePost);
+
+    // posDataFirebase();
     //!clear inputs
+
     Object.values(e.target).forEach((input) => {
       input.value = "";
     });
@@ -78,7 +81,7 @@ export default function ResumeBuilder() {
         workExperience: arrDataWorkExperience,
         education: arrDataEducation,
       };
-      await addDoc(collectionRef, { payload, urerId: user.uid });
+      await addDoc(collectionRef, { ...payload, userId: user.uid });
     }
   };
 
@@ -103,7 +106,9 @@ export default function ResumeBuilder() {
   };
 
   useEffect(() => {
-    posDataFirebase();
+    if (togglePost) {
+      posDataFirebase();
+    }
   }, [togglePost]);
 
   return (

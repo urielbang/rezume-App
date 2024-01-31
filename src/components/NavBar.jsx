@@ -3,12 +3,11 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import img from "../assets/reshot-icon-resume-XTALQHGEVC.svg";
 import { Link } from "react-router-dom";
-import { getAuth } from "firebase/auth";
+import { useContext } from "react";
+import { UserContext } from "../context/User";
 
 export default function NavBar({ isLoged }) {
-  const auth = getAuth();
-  const user = auth.currentUser;
-
+  const { user } = useContext(UserContext);
   const handleClickLoged = () => {};
 
   return (
