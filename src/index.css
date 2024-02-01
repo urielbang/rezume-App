@@ -392,3 +392,19 @@
 
   height: 100%;
 }
+.tamplates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  gap: 8rem;
+}
+.tamplates a,
+img {
+  width: 15vw;
+  border-radius: 50%;
+}
+
+.tamplates a:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
