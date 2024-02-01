@@ -346,12 +346,24 @@
 /* card */
 .containerCard {
   display: flex;
+  min-height: 100%;
+  height: 100%;
+
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background-repeat: no-repeat;
+
+  background-size: cover;
 }
 .resumeLeft {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 30%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.677);
+  color: aliceblue;
+  align-items: center;
 }
 .resumeLeft img {
   width: 6vw;
@@ -359,6 +371,24 @@
 .resumeRight {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 30%;
+  height: 100%;
+  align-items: center;
+  padding: 2rem;
+}
+.containerNoteResume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 85vh;
+}
+.cardFullResume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9em;
+  width: 100%;
+
   height: 100%;
 }
