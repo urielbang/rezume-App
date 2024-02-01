@@ -1,6 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/User";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import imgTamplate1 from "../assets/divorce.png";
 import imgTamplate2 from "../assets/certificate.png";
@@ -9,20 +11,24 @@ import imgTamplate3 from "../assets/divorce (1).png";
 export default function CardResume({ currentResume }) {
   const { user } = useContext(UserContext);
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <>
       {currentResume.email !== undefined || user !== undefined ? (
         <>
-          <h1>Choose one of tamplates</h1>
+          <h1 data-aos="fade-down">Choose one of tamplates</h1>
 
           <div className="tamplates">
-            <Link to={"/firstTamplate"}>
+            <Link data-aos="fade-up" to={"/firstTamplate"}>
               <img src={imgTamplate1}></img>
             </Link>
-            <Link to={"/secondTamplate"}>
+            <Link data-aos="fade-up" to={"/secondTamplate"}>
               <img src={imgTamplate2} />
             </Link>
-            <Link to={"/theardTamplate"}>
+            <Link data-aos="fade-up" to={"/theardTamplate"}>
               <img src={imgTamplate3}></img>
             </Link>
           </div>
