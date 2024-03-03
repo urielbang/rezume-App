@@ -383,6 +383,9 @@
   background-size: contain;
   background-repeat: repeat;
 }
+.conainerTamplates h1 {
+  text-align: center;
+}
 
 @media only screen and (max-width: 800px) {
   .picCoverHome {
@@ -421,5 +424,12 @@
   .containeResume {
     width: 100vw;
     margin-right: 1rem;
+  }
+  .tamplates {
+    display: flex;
+    flex-direction: column;
+  }
+  .tamplates a img {
+    width: 20vw;
   }
 }

@@ -17,7 +17,7 @@ export default function CardResume({ currentResume }) {
 
   return (
     <div>
-      {currentResume.email !== undefined || user !== undefined ? (
+      {currentResume.name ? (
         <>
           <h1 data-aos="fade-down">Choose one of tamplates</h1>
 
