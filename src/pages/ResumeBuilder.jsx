@@ -9,8 +9,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import img from "../assets/reshot-icon-resume-XTALQHGEVC.svg";
 
-import "aos/dist/aos.css";
-
 import InputGroup from "react-bootstrap/InputGroup";
 export default function ResumeBuilder() {
   const [resumeFromUsr, setResumeFromUsr] = useState({});

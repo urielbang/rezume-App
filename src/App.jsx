@@ -1,6 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import Auth from "./pages/Auth";

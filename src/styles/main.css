@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Indie+Flower&family=Josefin+Sans:ital,wght@0,400;1,300;1,500&family=Open+Sans:ital,wght@0,700;1,600&family=Oxygen:wght@300;400;700&family=Patrick+Hand&family=Playfair+Display:ital@1&family=Poppins&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@1,300&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+  --mainColor: #29335c;
+  --mainColorLighter: #485790;
+  --seconDaryColor: #db2b39;
+  --txtColor: #eee;
+}
+.navBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 13vh;
+
+  color: white;
+  background-color: var(--mainColor);
+  color: var(--txtColor);
+}
+.nav-btn {
+  color: white;
+  font-size: 1rem;
+}
+nav a {
+  margin: 0 2rem;
+  color: var(--txtColor);
+
+  text-decoration: none;
+}
+nav a:hover {
+  color: var(--seconDaryColor);
+}
+
+header .nav-btn {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--txtColor);
+  visibility: hidden;
+  opacity: 0;
+}
+@media only screen and (max-width: 800px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+    z-index: 20;
+  }
+  #logInMail {
+    /* display: none; */
+  }
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+  .picResumeBuilder {
+    display: none;
+  }
+  header .responsive_nav {
+    transform: none;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+  }
+  nav a {
+    margin: 0;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    margin-left: 1rem;
+  }
+  .navBarContainer {
+    height: 7vh;
+  }
+}

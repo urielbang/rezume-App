@@ -30,7 +30,7 @@ export default function ListResumex() {
   }, [user]);
 
   return (
-    <div>
+    <div className="conainerTamplates">
       <CardResume currentResume={currentResume} />
     </div>
   );

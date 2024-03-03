@@ -1,30 +1,7 @@
 .iconNavBar {
-  width: 5vw;
+  width: 4vw;
 }
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 3rem;
-  justify-content: flex-end;
-  width: 100%;
-  margin-right: 3rem;
-}
-.menu a {
-  text-decoration: none;
-  color: aliceblue;
-}
-.menu a:hover {
-  color: black;
-  text-decoration: underline;
-}
-#logInMail {
-  color: black;
-}
-.mailLoged {
-  color: black;
-  display: flex;
-  gap: 0.5rem;
-}
+
 .conectedIcon {
   font-size: 1.5rem;
 }
@@ -105,13 +82,7 @@
   width: 50%;
   color: #365486;
 }
-.navBar {
-  background-color: #365486;
 
-  height: 6.5vw;
-
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
-}
 .headingResume {
   text-align: center;
 }
@@ -131,9 +102,7 @@
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  background-image: url("./assets/background.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-image: url("./assets/dragon-scales.svg");
 
   display: flex;
   justify-content: center;
@@ -399,12 +368,58 @@
   min-height: 85vh;
   gap: 8rem;
 }
-.tamplates a,
-img {
-  width: 15vw;
+.tamplates a {
   border-radius: 50%;
+}
+.tamplates a img {
+  width: 15vw;
 }
 
 .tamplates a:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.conainerTamplates {
+  background-image: url("./assets/bacjground2.jpg");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+@media only screen and (max-width: 800px) {
+  .picCoverHome {
+    width: 100%;
+    height: 100%;
+  }
+  .cardHomeRight {
+    width: 50%;
+    height: 100%;
+  }
+  .picCoverHome {
+    width: 50vw;
+    height: 100%;
+  }
+  .cardHomeLeft p {
+    font-size: 1.5rem;
+  }
+  .cardHomeLeft span {
+    font-size: 1rem;
+  }
+  .homePageLink {
+    width: 25vw;
+    text-align: center;
+
+    font-size: 0.8rem;
+  }
+  .container-resume-builder {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .formContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .containeResume {
+    width: 100vw;
+    margin-right: 1rem;
+  }
 }

@@ -16,7 +16,7 @@ export default function CardResume({ currentResume }) {
   }, []);
 
   return (
-    <>
+    <div>
       {currentResume.email !== undefined || user !== undefined ? (
         <>
           <h1 data-aos="fade-down">Choose one of tamplates</h1>
@@ -41,6 +41,6 @@ export default function CardResume({ currentResume }) {
           </h1>
         </div>
       )}
-    </>
+    </div>
   );
 }
